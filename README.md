@@ -4,9 +4,10 @@ Forked from:
 https://code.google.com/p/mysql-slow-query-log-visualizer/ <br />
 
 
-This project add a "front end" to the mysql-slow-query-log-visualizer tool.   <br />
+This project adds a way to load and index slow query logs via web host, so that the logs can be easily viewed with the mysql-slow-query-log-visualizer tool.   <br />
 
-The slow query log files are presented on the "index.php" page.  A user can click the link for the file they would like to see in the visualizer tool.
+The slow query log files are presented on an "index.php" page.  A user can click the link for the file they would like to analyze with the visualizer tool.  A demo of this project is located here:  <br />
+<a href="http://macmillian.net/mysql-slow-query-log-plus/index.php">macmillian.net/mysql-slow-query-log-plus/index.php </a>
 
 The original method of drag-and-drop to load the slow query log into the visualizer also still works, and is provided as the bottom option on the index.php page.
 
