@@ -1,0 +1,999 @@
+/usr/libexec/mysqld, Version: 5.1.73-log (Source distribution). started with:
+Tcp port: 0  Unix socket: /var/lib/mysql/mysql.sock
+Time                 Id Command    Argument
+# Time: 160125 10:33:24
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.000322  Lock_time: 0.000236 Rows_sent: 1  Rows_examined: 1
+use jerry_rodeo;
+SET timestamp=1453736004;
+SELECT 1 FROM blah LIMIT 1;
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.000116  Lock_time: 0.000034 Rows_sent: 2  Rows_examined: 2
+SET timestamp=1453736004;
+SELECT * FROM blah ;
+# Time: 160125 10:37:26
+# User@Host: user2[user2] @ host2.test.com [1.1.1.2]
+# Query_time: 1.763272  Lock_time: 0.000101 Rows_sent: 116  Rows_examined: 116
+SET timestamp=1453736246;
+SHOW FULL TABLES FROM `bar`;
+# Time: 160125 10:44:48
+# User@Host: user3[user3] @ host3.test.com [1.1.1.3]
+# Query_time: 108.272598  Lock_time: 0.000937 Rows_sent: 1  Rows_examined: 6539584
+SET timestamp=1453736688;
+select max(date_format(date_inserted,'%Y-%m-%d')) from foo as maxModDate;
+# Time: 160125 10:48:00
+# User@Host: user3[user3] @ host3.test.com [1.1.1.3]
+# Query_time: 91.928851  Lock_time: 0.000358 Rows_sent: 1  Rows_examined: 8010029
+SET timestamp=1453736880;
+select max(date_format(date_inserted,'%Y-%m-%d')) from foo_addresses as maxModDate;
+# Time: 160125 10:50:06
+# User@Host: user3[user3] @ host3.test.com [1.1.1.3]
+# Query_time: 38.141187  Lock_time: 0.069769 Rows_sent: 1  Rows_examined: 3354334
+SET timestamp=1453737006;
+select max(date_format(date_inserted,'%Y-%m-%d')) from foo_classifications as maxModDate;
+# Time: 160125 10:50:28
+# User@Host: user3[user3] @ host3.test.com [1.1.1.3]
+# Query_time: 0.807933  Lock_time: 0.000531 Rows_sent: 1  Rows_examined: 860940
+SET timestamp=1453737028;
+select max(date_format(date_inserted,'%Y-%m-%d')) from foo_emails as maxModDate;
+# Time: 160125 10:51:05
+# User@Host: user3[user3] @ host3.test.com [1.1.1.3]
+# Query_time: 24.453424  Lock_time: 0.000241 Rows_sent: 1  Rows_examined: 3217943
+SET timestamp=1453737065;
+select max(date_format(date_inserted,'%Y-%m-%d')) from foo_alphas as maxModDate;
+# Time: 160125 10:52:49
+# User@Host: user3[user3] @ host3.test.com [1.1.1.3]
+# Query_time: 85.293071  Lock_time: 0.000344 Rows_sent: 1  Rows_examined: 6564172
+SET timestamp=1453737169;
+select max(date_format(date_inserted,'%Y-%m-%d')) from foo_names as maxModDate;
+# Time: 160125 10:58:31
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.000291  Lock_time: 0.000071 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1453737511;
+SELECT DISTINCT table_name FROM information_schema.tables WHERE table_schema = 'user_sonoma';
+# Time: 160125 10:58:52
+# User@Host: user3[user3] @ host3.test.com [1.1.1.3]
+# Query_time: 310.646277  Lock_time: 0.020447 Rows_sent: 1  Rows_examined: 25411873
+SET timestamp=1453737532;
+select max(date_format(date_inserted,'%Y-%m-%d')) from foo_tango as maxModDate;
+# Time: 160125 11:01:10
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 13.715865  Lock_time: 0.000158 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1453737670;
+SELECT 
+	COUNT(DISTINCT alphas.alpha_id) AS `alphas.distinct_count`,
+	COALESCE(SUM((CASE WHEN deltas.trainer_type IN ('tennis', 'golf') THEN deltas.patio_amino
+ELSE 0 END)),0) AS `deltas.total_patio_amino`
+FROM foo_tango AS deltas
+LEFT JOIN foo_alphas AS alphas ON deltas.alpha_id = alphas.alpha_id
+
+WHERE 
+	(((deltas.alamo_board_number) IS NOT NULL)) AND 
+	(deltas.gamma_date >= ('2015-11-13')) AND 
+	(CASE WHEN deltas.trainer_type IN ('PL', 'golf') THEN deltas.patio_amino
+ELSE 0 END
+0) AND 
+	(deltas.sierra LIKE 'BAZ' OR deltas.sierra LIKE 'FOO' OR deltas.sierra LIKE 'ADD' OR deltas.sierra LIKE 'BAR') AND
+	(deltas.sts = 'A') AND 
+	(CASE WHEN deltas.trainer_type = 'PL' THEN 'pappas'
+WHEN deltas.trainer_type = 'PP' THEN 'pappas pacific'
+WHEN deltas.trainer_type = 'golf' THEN 'gamma'
+ELSE 'Other' END
+= 'pappas')
+ORDER BY COUNT(DISTINCT alphas.alpha_id) DESC
+LIMIT 500;
+# Time: 160125 11:03:35
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 2.076035  Lock_time: 0.565098 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1453737815;
+SELECT
+DISTINCT CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+FROM bar_delta
+WHERE CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+LIKE '%'
+OR CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+LIKE '% %'
+ORDER BY CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+
+LIMIT 5000;
+# Time: 160125 11:03:40
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 2.019121  Lock_time: 0.000099 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1453737820;
+SELECT
+DISTINCT CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+FROM bar_delta
+WHERE CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+LIKE 'OP %'
+OR CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+LIKE '% OP %'
+ORDER BY CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+
+LIMIT 5000;
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 1.099935  Lock_time: 0.000239 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1453737820;
+SELECT
+DISTINCT CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+FROM bar_delta
+WHERE CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+LIKE 'OP%'
+OR CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+LIKE '% OP%'
+ORDER BY CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+
+LIMIT 5000;
+# Time: 160125 11:08:15
+# User@Host: user3[user3] @ host3.test.com [1.1.1.3]
+# Query_time: 1.119917  Lock_time: 0.000273 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1453738095;
+INSERT IGNORE INTO `foo_tango` (`alpha_id`) VALUES (240821) ;
+# Time: 160125 11:08:39
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 48.246665  Lock_time: 0.000108 Rows_sent: 1  Rows_examined: 403423
+SET timestamp=1453738119;
+SELECT 
+	COUNT(*) AS `bar_delta.count`,
+	COUNT(DISTINCT bar_delta.donorCupsId) AS `bar_delta.distinct_cups`,
+	COALESCE(SUM(bar_delta.pacificAmino),0) AS `bar_delta.total_pacific_amino`
+FROM bar_delta
+
+WHERE 
+	(CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+= 'OP') AND 
+	(bar_delta.pacificAmino > 0) AND 
+	(((bar_delta.pacificpacificDate) >= ('2015-01-01') AND (bar_delta.pacificpacificDate) < ('2015-12-31')))
+ORDER BY COUNT(*) DESC
+LIMIT 500;
+# Time: 160125 11:10:44
+# User@Host: user3[user3] @ host3.test.com [1.1.1.3]
+# Query_time: 1.012997  Lock_time: 0.000245 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1453738244;
+INSERT IGNORE INTO `foo_tango` (`alpha_id`) VALUES (240821) ;
+# Time: 160125 11:10:56
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 1.572380  Lock_time: 0.000079 Rows_sent: 2  Rows_examined: 403427
+SET timestamp=1453738256;
+SELECT 
+	CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+AS `bar_delta.gamma_kind`
+FROM bar_delta
+
+GROUP BY 1
+ORDER BY CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+
+LIMIT 500;
+# Time: 160125 11:11:08
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 1.100147  Lock_time: 0.000098 Rows_sent: 1  Rows_examined: 403425
+SET timestamp=1453738268;
+SELECT
+DISTINCT CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+FROM bar_delta
+WHERE CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+LIKE 'one%'
+OR CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+LIKE '% one%'
+ORDER BY CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+
+LIMIT 5000;
+# Time: 160125 11:11:10
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.950855  Lock_time: 0.000096 Rows_sent: 1  Rows_examined: 403425
+SET timestamp=1453738270;
+SELECT
+DISTINCT CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+FROM bar_delta
+WHERE CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+LIKE 'Orange%'
+OR CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+LIKE '% Orange%'
+ORDER BY CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+
+LIMIT 5000;
+# Time: 160125 11:11:12
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.812617  Lock_time: 0.000102 Rows_sent: 1  Rows_examined: 428059
+SET timestamp=1453738272;
+SELECT 
+	COUNT(*) AS `bar_delta.count`,
+	COUNT(DISTINCT bar_delta.donorCupsId) AS `bar_delta.distinct_cups`,
+	COALESCE(SUM(bar_delta.pacificAmino),0) AS `bar_delta.total_pacific_amino`
+FROM bar_delta
+
+WHERE 
+	(CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+= 'Orange') AND 
+	(bar_delta.pacificAmino > 0) AND 
+	(((bar_delta.pacificpacificDate) >= ('2015-01-01') AND (bar_delta.pacificpacificDate) < ('2015-12-31')))
+ORDER BY COUNT(*) DESC
+LIMIT 500;
+# Time: 160125 11:11:43
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 1.277181  Lock_time: 0.151994 Rows_sent: 2  Rows_examined: 477319
+SET timestamp=1453738303;
+SELECT 
+	CASE WHEN bar_formmapping.mappedvalue like 'Goode Fund%' THEN 'Fund'
+ELSE 'Indigo' END
+AS `bar_formmapping.FundorInc`,
+	COUNT(*) AS `bar_delta.count`,
+	COUNT(DISTINCT bar_delta.donorCupsId) AS `bar_delta.distinct_cups`,
+	COALESCE(SUM(bar_delta.pacificAmino),0) AS `bar_delta.total_pacific_amino`
+FROM bar_delta
+LEFT JOIN bar_formmapping ON bar_delta.formid = bar_formmapping.formid
+
+WHERE 
+	(CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+= 'Orange') AND 
+	(bar_delta.pacificAmino > 0) AND 
+	(((bar_delta.pacificpacificDate) >= ('2015-01-01') AND (bar_delta.pacificpacificDate) < ('2015-12-31')))
+GROUP BY 1
+ORDER BY COUNT(*) DESC
+LIMIT 500;
+# Time: 160125 11:14:58
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 1.226807  Lock_time: 0.000104 Rows_sent: 1  Rows_examined: 403425
+SET timestamp=1453738498;
+SELECT
+DISTINCT CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+FROM bar_delta
+WHERE CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+LIKE 'Some%'
+OR CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+LIKE '% Some%'
+ORDER BY CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+
+LIMIT 5000;
+# Time: 160125 11:15:06
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 2.158237  Lock_time: 0.000113 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1453738506;
+SELECT
+DISTINCT CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+FROM bar_delta
+WHERE CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+LIKE 'sus%'
+OR CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+LIKE '% sus%'
+ORDER BY CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+
+LIMIT 5000;
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 1.809191  Lock_time: 0.000127 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1453738506;
+SELECT
+DISTINCT CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+FROM bar_delta
+WHERE CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+LIKE 'Some %'
+OR CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+LIKE '% Some %'
+ORDER BY CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+
+LIMIT 5000;
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.866692  Lock_time: 0.000128 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1453738506;
+SELECT
+DISTINCT CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+FROM bar_delta
+WHERE CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+LIKE 'Some gamma %'
+OR CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+LIKE '% Some gamma %'
+ORDER BY CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+
+LIMIT 5000;
+# Time: 160125 11:15:07
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.828230  Lock_time: 0.000117 Rows_sent: 1  Rows_examined: 472258
+SET timestamp=1453738507;
+SELECT 
+	COUNT(*) AS `bar_delta.count`,
+	COUNT(DISTINCT bar_delta.donorCupsId) AS `bar_delta.distinct_cups`,
+	COALESCE(SUM(bar_delta.pacificAmino),0) AS `bar_delta.total_pacific_amino`
+FROM bar_delta
+
+WHERE 
+	(CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+= 'Some gamma') AND 
+	(bar_delta.pacificAmino > 0) AND 
+	(((bar_delta.pacificpacificDate) >= ('2015-01-01') AND (bar_delta.pacificpacificDate) < ('2015-12-31')))
+ORDER BY COUNT(*) DESC
+LIMIT 500;
+# Time: 160125 11:15:15
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 1.208534  Lock_time: 0.000115 Rows_sent: 2  Rows_examined: 93475
+SET timestamp=1453738515;
+SELECT 
+	CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+AS `bar_delta.gamma_kind`,
+	COUNT(*) AS `bar_delta.count`,
+	COUNT(DISTINCT bar_delta.donorCupsId) AS `bar_delta.distinct_cups`,
+	COALESCE(SUM(bar_delta.pacificAmino),0) AS `bar_delta.total_pacific_amino`
+FROM bar_delta
+
+WHERE 
+	(bar_delta.pacificAmino > 0) AND 
+	(((bar_delta.pacificpacificDate) >= ('2015-01-01') AND (bar_delta.pacificpacificDate) < ('2015-12-31')))
+GROUP BY 1
+ORDER BY COUNT(*) DESC
+LIMIT 500;
+# Time: 160125 11:16:56
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 1.190491  Lock_time: 0.000124 Rows_sent: 2  Rows_examined: 82929
+SET timestamp=1453738616;
+SELECT 
+	CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+AS `bar_delta.gamma_kind`,
+	COUNT(*) AS `bar_delta.count`,
+	COUNT(DISTINCT bar_delta.donorCupsId) AS `bar_delta.distinct_cups`,
+	COALESCE(SUM(bar_delta.pacificAmino),0) AS `bar_delta.total_pacific_amino`
+FROM bar_delta
+
+WHERE 
+	(bar_delta.pacificAmino > 0) AND 
+	(((bar_delta.pacificpacificDate) >= ('2014-01-01') AND (bar_delta.pacificpacificDate) < ('2014-12-31')))
+GROUP BY 1
+ORDER BY COUNT(*) DESC
+LIMIT 500;
+# Time: 160125 11:20:21
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 1.091587  Lock_time: 0.000126 Rows_sent: 2  Rows_examined: 77848
+SET timestamp=1453738821;
+SELECT 
+	CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+AS `bar_delta.gamma_kind`,
+	COUNT(*) AS `bar_delta.count`,
+	COUNT(DISTINCT bar_delta.donorCupsId) AS `bar_delta.distinct_cups`,
+	COALESCE(SUM(bar_delta.pacificAmino),0) AS `bar_delta.total_pacific_amino`
+FROM bar_delta
+
+WHERE 
+	(bar_delta.pacificAmino > 0) AND 
+	(((bar_delta.pacificpacificDate) >= ('2013-01-01') AND (bar_delta.pacificpacificDate) < ('2013-12-31')))
+GROUP BY 1
+ORDER BY COUNT(*) DESC
+LIMIT 500;
+# Time: 160125 11:22:01
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.833770  Lock_time: 0.000082 Rows_sent: 5  Rows_examined: 403433
+SET timestamp=1453738921;
+SELECT
+DISTINCT bar_delta.islandsierraCodeType FROM bar_delta
+WHERE bar_delta.islandsierraCodeType LIKE '%'
+OR bar_delta.islandsierraCodeType LIKE '% %'
+ORDER BY bar_delta.islandsierraCodeType
+LIMIT 5000;
+# Time: 160125 11:22:24
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 1.657953  Lock_time: 0.000101 Rows_sent: 2  Rows_examined: 403427
+SET timestamp=1453738944;
+SELECT
+DISTINCT CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+FROM bar_delta
+WHERE CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+LIKE '%'
+OR CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+LIKE '% %'
+ORDER BY CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+
+LIMIT 5000;
+# Time: 160125 11:22:35
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 1.551646  Lock_time: 0.000121 Rows_sent: 6  Rows_examined: 23787
+SET timestamp=1453738955;
+SELECT 
+	bar_delta.islandsierraCodeType AS `bar_delta.island_sierra_code_type`,
+	COUNT(*) AS `bar_delta.count`,
+	COUNT(DISTINCT bar_delta.donorCupsId) AS `bar_delta.distinct_cups`,
+	COALESCE(SUM(bar_delta.pacificAmino),0) AS `bar_delta.total_pacific_amino`
+FROM bar_delta
+
+WHERE 
+	(CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+= 'Orange') AND 
+	(bar_delta.pacificAmino > 0) AND 
+	(((bar_delta.pacificpacificDate) >= ('2013-01-01') AND (bar_delta.pacificpacificDate) < ('2013-12-31')))
+GROUP BY 1
+ORDER BY COUNT(*) DESC
+LIMIT 500;
+# Time: 160125 11:22:53
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.780325  Lock_time: 0.000095 Rows_sent: 1  Rows_examined: 403423
+SET timestamp=1453738973;
+SELECT 
+	COUNT(*) AS `bar_delta.count`,
+	COUNT(DISTINCT bar_delta.donorCupsId) AS `bar_delta.distinct_cups`,
+	COALESCE(SUM(bar_delta.pacificAmino),0) AS `bar_delta.total_pacific_amino`
+FROM bar_delta
+
+WHERE 
+	(CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+= 'Orange') AND 
+	(bar_delta.pacificAmino > 0) AND 
+	(((bar_delta.pacificpacificDate) >= ('2013-01-01') AND (bar_delta.pacificpacificDate) < ('2013-12-31')))
+LIMIT 1;
+# Time: 160125 11:23:57
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 1.812399  Lock_time: 0.000244 Rows_sent: 10  Rows_examined: 1978
+SET timestamp=1453739037;
+SELECT 
+	bar_delta.islandsierraCodeText AS `bar_delta.island_sierra_code_text`,
+	COUNT(DISTINCT bar_delta.donorCupsId) AS `bar_delta.distinct_cups`,
+	1.0 * (COALESCE(SUM(bar_delta.pacificAmino),0)) / (COUNT(DISTINCT bar_delta.donorCupsId)) AS `bar_delta.average_pacific_per_donor`,
+	COALESCE(SUM(bar_delta.pacificAmino),0) AS `bar_delta.total_pacific_amino`
+FROM bar_delta
+LEFT JOIN bar_formmapping ON bar_delta.formid = bar_formmapping.formid
+
+WHERE 
+	blah = "blah"
+GROUP BY 1
+ORDER BY 1.0 * (COALESCE(SUM(bar_delta.pacificAmino),0)) / (COUNT(DISTINCT bar_delta.donorCupsId)) DESC
+LIMIT 500;
+# Time: 160125 11:23:59
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.925831  Lock_time: 0.000308 Rows_sent: 183  Rows_examined: 408845
+SET timestamp=1453739039;
+SELECT 
+	DATE_FORMAT(pacificpacificDate, '%m-%d')
+AS `bar_delta.pacific_day_of_year`,
+	YEAR(bar_delta.pacificpacificDate) AS `bar_delta.pacific_year`,
+	COALESCE(SUM(bar_delta.pacificAmino),0) AS `bar_delta.total_pacific_amino`
+FROM bar_delta
+LEFT JOIN bar_formmapping ON bar_delta.formid = bar_formmapping.formid
+
+WHERE 
+	blah = "blah"
+GROUP BY 1,2
+ORDER BY DATE_FORMAT(pacificpacificDate, '%m-%d')
+
+LIMIT 500;
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 3.376809  Lock_time: 0.001294 Rows_sent: 18  Rows_examined: 52024
+SET timestamp=1453739039;
+SELECT 
+	*
+FROM bar_delta
+LEFT JOIN bar_formmapping ON bar_delta.formid = bar_formmapping.formid
+WHERE 
+	blah = "blah
+LIMIT 500;
+# Time: 160125 11:24:00
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 1.000602  Lock_time: 0.000166 Rows_sent: 3  Rows_examined: 408485
+SET timestamp=1453739040;
+SELECT 
+	*
+FROM bar_delta
+LEFT JOIN bar_formmapping ON bar_delta.formid = bar_formmapping.formid
+WHERE
+	blah = "blah
+LIMIT 500;
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 1.230273  Lock_time: 0.000470 Rows_sent: 3  Rows_examined: 455411
+SET timestamp=1453739040;
+SELECT 
+	*
+FROM bar_delta
+LEFT JOIN bar_formmapping ON bar_delta.formid = bar_formmapping.formid
+WHERE
+	blah = "blah
+LIMIT 500;
+
+= 'Summer Month deltas') AND
+	(CASE WHEN bar_formmapping.mappedvalue like 'Goode Furrow%' THEN 'Furrow'
+ELSE 'Indigo' END
+= 'Indigo')
+GROUP BY 1
+LIMIT 500;
+# Time: 160125 11:24:03
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 1.297123  Lock_time: 0.000313 Rows_sent: 170  Rows_examined: 408465
+SET timestamp=1453739043;
+SELECT 
+	*
+FROM bar_delta
+LEFT JOIN bar_formmapping ON bar_delta.formid = bar_formmapping.formid
+WHERE
+	blah = "blah
+LIMIT 500;
+# Time: 160125 11:24:04
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.993818  Lock_time: 0.000185 Rows_sent: 3  Rows_examined: 408131
+SET timestamp=1453739044;
+SELECT 
+	*
+FROM bar_delta
+LEFT JOIN bar_formmapping ON bar_delta.formid = bar_formmapping.formid
+WHERE
+	blah = "blah
+LIMIT 500;
+# Time: 160125 11:24:07
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.974027  Lock_time: 0.000172 Rows_sent: 3  Rows_examined: 404905
+SET timestamp=1453739047;
+SELECT 
+	*
+FROM bar_delta
+LEFT JOIN bar_formmapping ON bar_delta.formid = bar_formmapping.formid
+WHERE
+	blah = "blah
+LIMIT 500;
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.912533  Lock_time: 0.000170 Rows_sent: 3  Rows_examined: 403449
+SET timestamp=1453739047;
+SELECT 
+	*
+FROM bar_delta
+LEFT JOIN bar_formmapping ON bar_delta.formid = bar_formmapping.formid
+WHERE
+	blah = "blah
+LIMIT 500;
+# Time: 160125 11:24:10
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 1.037142  Lock_time: 0.000245 Rows_sent: 102  Rows_examined: 404608
+SET timestamp=1453739050;
+SELECT 
+	*
+FROM bar_delta
+LEFT JOIN bar_formmapping ON bar_delta.formid = bar_formmapping.formid
+WHERE
+	blah = "blah
+LIMIT 500;
+# Time: 160125 11:24:11
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.791090  Lock_time: 0.000155 Rows_sent: 2  Rows_examined: 404408
+SET timestamp=1453739051;
+SELECT 
+	*
+FROM bar_delta
+LEFT JOIN bar_formmapping ON bar_delta.formid = bar_formmapping.formid
+WHERE
+	blah = "blah
+LIMIT 500;
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.883225  Lock_time: 0.000168 Rows_sent: 3  Rows_examined: 405656
+SET timestamp=1453739051;
+SELECT 
+	YEAR(bar_delta.pacificpacificDate) AS `bar_delta.pacific_year`,
+	COALESCE(SUM(bar_delta.pacificAmino),0) AS `bar_delta.total_pacific_amino`
+FROM bar_delta
+LEFT JOIN bar_formmapping ON bar_delta.formid = bar_formmapping.formid
+
+WHERE 
+	blah = "blah"
+
+= 'Summer Month deltas') AND
+	(CASE WHEN bar_formmapping.mappedvalue like 'Goode Furrow%' THEN 'Furrow'
+ELSE 'Indigo' END
+= 'Indigo')
+GROUP BY 1
+LIMIT 500;
+# Time: 160125 11:27:28
+# User@Host: user3[user3] @ host3.test.com [1.1.1.3]
+# Query_time: 942.434579  Lock_time: 0.026166 Rows_sent: 1  Rows_examined: 36003784
+SET timestamp=1453739248;
+select max(date_format(date_inserted,'%Y-%m-%d')) from foo_islands as maxModDate;
+# Time: 160125 11:29:19
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 1.640706  Lock_time: 0.000123 Rows_sent: 6  Rows_examined: 54081
+SET timestamp=1453739359;
+SELECT 
+	bar_delta.islandsierraCodeType AS `bar_delta.island_sierra_code_type`,
+	COUNT(DISTINCT bar_delta.diegoCupsId) AS `bar_delta.distinct_cups`,
+	COALESCE(SUM(bar_delta.pacificAmino),0) AS `bar_delta.total_pacific_amino`
+FROM bar_delta
+
+WHERE 
+	blah = "blah"
+LIMIT 1;
+# Time: 160125 12:03:34
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.000362  Lock_time: 0.000074 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1453741414;
+SELECT DISTINCT table_name FROM information_schema.tables WHERE table_schema = 'user_sonoma';
+# Time: 160125 12:12:32
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 1.747909  Lock_time: 0.000170 Rows_sent: 6  Rows_examined: 63345
+SET timestamp=1453741952;
+SELECT 
+	bar_delta.islandsierraCodeType AS `bar_delta.island_sierra_code_type`,
+	COUNT(DISTINCT bar_delta.diegoCupsId) AS `bar_delta.distinct_cups`,
+	COALESCE(SUM(bar_delta.pacificAmino),0) AS `bar_delta.total_pacific_amino`
+FROM bar_delta
+
+WHERE 
+	blah = "blah"
+LIMIT 1;
+# Time: 160125 12:13:56
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.992311  Lock_time: 0.000106 Rows_sent: 6  Rows_examined: 19604
+SET timestamp=1453742036;
+SELECT 
+	bar_delta.islandsierraCodeType AS `bar_delta.island_sierra_code_type`,
+	COUNT(DISTINCT bar_delta.diegoCupsId) AS `bar_delta.distinct_cups`,
+	COALESCE(SUM(bar_delta.pacificAmino),0) AS `bar_delta.total_pacific_amino`
+FROM bar_delta
+
+WHERE 
+	blah = "blah"
+GROUP BY 1
+ORDER BY COUNT(DISTINCT bar_delta.diegoCupsId) DESC
+LIMIT 500;
+# Time: 160125 12:13:57
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.421952  Lock_time: 0.000086 Rows_sent: 1  Rows_examined: 403423
+SET timestamp=1453742037;
+SELECT 
+	blah = "blah"
+LIMIT 1;
+# Time: 160125 12:15:19
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 1.224124  Lock_time: 0.000230 Rows_sent: 6  Rows_examined: 24648
+SET timestamp=1453742119;
+SELECT 
+	bar_delta.islandsierraCodeType AS `bar_delta.island_sierra_code_type`,
+	COUNT(DISTINCT bar_delta.diegoCupsId) AS `bar_delta.distinct_cups`,
+	COALESCE(SUM(bar_delta.pacificAmino),0) AS `bar_delta.total_pacific_amino`
+FROM bar_delta
+
+WHERE 
+	blah = "blah"
+LIMIT 1;
+# Time: 160125 12:19:57
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 1.860106  Lock_time: 0.000120 Rows_sent: 6  Rows_examined: 68847
+SET timestamp=1453742397;
+SELECT 
+	bar_delta.islandsierraCodeType AS `bar_delta.island_sierra_code_type`,
+	COUNT(DISTINCT bar_delta.diegoCupsId) AS `bar_delta.distinct_cups`,
+	COALESCE(SUM(bar_delta.pacificAmino),0) AS `bar_delta.total_pacific_amino`
+FROM bar_delta
+
+WHERE 
+	blah = "blah"
+GROUP BY 1
+ORDER BY COUNT(DISTINCT bar_delta.diegoCupsId) DESC
+LIMIT 500;
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.510398  Lock_time: 0.000094 Rows_sent: 1  Rows_examined: 403423
+SET timestamp=1453742397;
+SELECT 
+	COUNT(DISTINCT bar_delta.diegoCupsId) AS `bar_delta.distinct_cups`,
+	COALESCE(SUM(bar_delta.pacificAmino),0) AS `bar_delta.total_pacific_amino`
+FROM bar_delta
+
+WHERE 
+	blah = "blah"
+LIMIT 1;
+# Time: 160125 12:22:32
+# User@Host: user3[user3] @ host3.test.com [1.1.1.3]
+# Query_time: 0.000837  Lock_time: 0.000087 Rows_sent: 1  Rows_examined: 651
+SET timestamp=1453742552;
+select max(date_format(date_inserted,'%Y-%m-%d')) from foo_lists as maxModDate;
+# Time: 160125 12:26:54
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 13.620164  Lock_time: 4.592460 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1453742814;
+SELECT 
+	bar_delta.islandsierraCodeType AS `bar_delta.island_sierra_code_type`,
+	bar_cupstituents.externalFirstgammaAmino AS `bar_cupstituents.external_first_gamma_amino`,
+	COUNT(DISTINCT bar_delta.diegoCupsId) AS `bar_delta.distinct_cups`,
+	COALESCE(SUM(bar_delta.pacificAmino),0) AS `bar_delta.total_pacific_amino`
+FROM bar_delta
+LEFT JOIN bar_cupstituents ON bar_delta.diegocupsid = bar_cupstituents.cupsid
+
+WHERE 
+	blah = "blah"
+GROUP BY 1,2
+ORDER BY COUNT(DISTINCT bar_delta.diegoCupsId) DESC
+LIMIT 500;
+# Time: 160125 12:31:23
+# User@Host: user3[user3] @ host3.test.com [1.1.1.3]
+# Query_time: 0.012339  Lock_time: 0.000060 Rows_sent: 1  Rows_examined: 9365
+SET timestamp=1453743083;
+select max(date_format(date_inserted,'%Y-%m-%d')) from foo_alpha_projects as maxModDate;
+# Time: 160125 12:32:39
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 345.764315  Lock_time: 0.000231 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1453743159;
+SELECT 
+	bar_cupstituents.externalFirstgammaAmino AS `bar_cupstituents.external_first_gamma_amino`,
+	COUNT(DISTINCT bar_delta.diegoCupsId) AS `bar_delta.distinct_cups`,
+	COALESCE(SUM(bar_delta.pacificAmino),0) AS `bar_delta.total_pacific_amino`
+FROM bar_delta
+LEFT JOIN bar_cupstituents ON bar_delta.diegocupsid = bar_cupstituents.cupsid
+
+WHERE 
+	blah = "blah"
+GROUP BY 1
+ORDER BY COUNT(DISTINCT bar_delta.diegoCupsId) DESC
+LIMIT 500;
+# Time: 160125 12:33:14
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 4.482742  Lock_time: 0.000104 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1453743194;
+SELECT
+DISTINCT bar_cupstituents.SUSTAINERSTS FROM bar_cupstituents
+WHERE bar_cupstituents.SUSTAINERSTS LIKE '%'
+OR bar_cupstituents.SUSTAINERSTS LIKE '% %'
+ORDER BY bar_cupstituents.SUSTAINERSTS
+LIMIT 5000;
+# Time: 160125 12:34:44
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 46.299608  Lock_time: 0.000159 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1453743284;
+SELECT 
+	bar_cupstituents.sustainedMonthlyAmino AS `bar_cupstituents.sustained_monthly_amino`,
+	CASE WHEN (CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END) = 'Some gamma' THEN (CASE WHEN bar_delta.pacificCreationMethod = 'ONLINE' THEN 'Yes'
+ELSE 'No' END)
+ELSE null END
+AS `bar_delta.is_new_Some_gamma`,
+	COUNT(DISTINCT bar_delta.diegoCupsId) AS `bar_delta.distinct_cups`,
+	COALESCE(SUM(bar_delta.pacificAmino),0) AS `bar_delta.total_pacific_amino`
+FROM bar_delta
+LEFT JOIN bar_cupstituents ON bar_delta.diegocupsid = bar_cupstituents.cupsid
+
+WHERE 
+	blah = "blah"
+GROUP BY 1,2
+ORDER BY COUNT(DISTINCT bar_delta.diegoCupsId) DESC
+LIMIT 500;
+# Time: 160125 12:35:31
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 47.130097  Lock_time: 0.000132 Rows_sent: 83  Rows_examined: 610094
+SET timestamp=1453743331;
+SELECT 
+	bar_cupstituents.sustainedMonthlyAmino AS `bar_cupstituents.sustained_monthly_amino`,
+	COUNT(DISTINCT bar_delta.diegoCupsId) AS `bar_delta.distinct_cups`,
+	COALESCE(SUM(bar_delta.pacificAmino),0) AS `bar_delta.total_pacific_amino`
+FROM bar_delta
+LEFT JOIN bar_cupstituents ON bar_delta.diegocupsid = bar_cupstituents.cupsid
+
+WHERE 
+	(CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+= 'Some gamma') AND 
+	(bar_delta.pacificAmino > 0) AND 
+	(((bar_delta.pacificpacificDate) >= ('2015-01-01') AND (bar_delta.pacificpacificDate) < ('2015-12-31')))
+GROUP BY 1
+ORDER BY COUNT(DISTINCT bar_delta.diegoCupsId) DESC
+LIMIT 500;
+# Time: 160125 12:35:32
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 1.317745  Lock_time: 0.000149 Rows_sent: 1  Rows_examined: 472258
+SET timestamp=1453743332;
+SELECT 
+	COUNT(DISTINCT bar_delta.diegoCupsId) AS `bar_delta.distinct_cups`,
+	COALESCE(SUM(bar_delta.pacificAmino),0) AS `bar_delta.total_pacific_amino`
+FROM bar_delta
+LEFT JOIN bar_cupstituents ON bar_delta.diegocupsid = bar_cupstituents.cupsid
+
+WHERE 
+	(CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+= 'Some gamma') AND 
+	(bar_delta.pacificAmino > 0) AND 
+	(((bar_delta.pacificpacificDate) >= ('2015-01-01') AND (bar_delta.pacificpacificDate) < ('2015-12-31')))
+LIMIT 1;
+# Time: 160125 12:37:41
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 1.156017  Lock_time: 0.000144 Rows_sent: 2  Rows_examined: 403427
+SET timestamp=1453743461;
+SELECT
+DISTINCT CASE WHEN (CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END) = 'Some gamma' THEN (CASE WHEN bar_delta.pacificCreationMethod = 'ONLINE' THEN 'Yes'
+ELSE 'No' END)
+ELSE null END
+FROM bar_delta
+WHERE CASE WHEN (CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END) = 'Some gamma' THEN (CASE WHEN bar_delta.pacificCreationMethod = 'ONLINE' THEN 'Yes'
+ELSE 'No' END)
+ELSE null END
+LIKE '%'
+OR CASE WHEN (CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END) = 'Some gamma' THEN (CASE WHEN bar_delta.pacificCreationMethod = 'ONLINE' THEN 'Yes'
+ELSE 'No' END)
+ELSE null END
+LIKE '% %'
+ORDER BY CASE WHEN (CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END) = 'Some gamma' THEN (CASE WHEN bar_delta.pacificCreationMethod = 'ONLINE' THEN 'Yes'
+ELSE 'No' END)
+ELSE null END
+
+LIMIT 5000;
+# Time: 160125 12:38:39
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 1.037883  Lock_time: 0.000168 Rows_sent: 167  Rows_examined: 418352
+SET timestamp=1453743519;
+SELECT 
+	bar_cupstituents.sustainedMonthlyAmino AS `bar_cupstituents.sustained_monthly_amino`,
+	bar_delta.romeopacificInitialAmino AS `bar_delta.romeo_pacific_initial_amino`,
+	COUNT(DISTINCT bar_delta.diegoCupsId) AS `bar_delta.distinct_cups`
+FROM bar_delta
+LEFT JOIN bar_cupstituents ON bar_delta.diegocupsid = bar_cupstituents.cupsid
+
+WHERE 
+	blah = "blah"
+GROUP BY 1,2
+ORDER BY COUNT(DISTINCT bar_delta.diegoCupsId) DESC
+LIMIT 500;
+# Time: 160125 12:38:40
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.624136  Lock_time: 0.000160 Rows_sent: 1  Rows_examined: 408288
+SET timestamp=1453743520;
+SELECT 
+	COUNT(DISTINCT bar_delta.diegoCupsId) AS `bar_delta.distinct_cups`
+FROM bar_delta
+LEFT JOIN bar_cupstituents ON bar_delta.diegocupsid = bar_cupstituents.cupsid
+
+WHERE 
+	blah = "blah"
+LIMIT 1;
+# Time: 160125 12:39:18
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.868045  Lock_time: 0.000151 Rows_sent: 49  Rows_examined: 4963
+SET timestamp=1453743558;
+SELECT 
+	bar_delta.romeopacificInitialAmino AS `bar_delta.romeo_pacific_initial_amino`,
+	COUNT(DISTINCT bar_delta.diegoCupsId) AS `bar_delta.distinct_cups`
+FROM bar_delta
+
+WHERE 
+	(CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END
+= 'Some gamma') AND 
+	(CASE WHEN (CASE WHEN bar_delta.romeopacificType = 'Some' THEN 'Some gamma' 
+ELSE 'Orange' END) = 'Some gamma' THEN (CASE WHEN bar_delta.pacificCreationMethod = 'ONLINE' THEN 'Yes'
+ELSE 'No' END)
+ELSE null END
+= 'Yes') AND 
+	(bar_delta.pacificAmino > 0) AND 
+	(((bar_delta.pacificpacificDate) >= ('2015-01-01') AND (bar_delta.pacificpacificDate) < ('2015-12-31')))
+GROUP BY 1
+ORDER BY COUNT(DISTINCT bar_delta.diegoCupsId) DESC
+LIMIT 500;
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.553475  Lock_time: 0.000093 Rows_sent: 1  Rows_examined: 403423
+SET timestamp=1453743558;
+SELECT 
+	COUNT(DISTINCT bar_delta.diegoCupsId) AS `bar_delta.distinct_cups`
+FROM bar_delta
+
+WHERE 
+	blah = "blah"
+LIMIT 1;
+# Time: 160125 12:42:08
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.950126  Lock_time: 0.000137 Rows_sent: 44  Rows_examined: 4521
+SET timestamp=1453743728;
+SELECT 
+	bar_delta.romeopacificInitialAmino AS `bar_delta.romeo_pacific_initial_amino`,
+	COUNT(DISTINCT bar_delta.diegoCupsId) AS `bar_delta.distinct_cups`
+FROM bar_delta
+
+WHERE 
+	blah = "blah"
+GROUP BY 1
+ORDER BY COUNT(DISTINCT bar_delta.diegoCupsId) DESC
+LIMIT 500;
+# Time: 160125 12:42:09
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.554051  Lock_time: 0.000096 Rows_sent: 1  Rows_examined: 403423
+SET timestamp=1453743729;
+SELECT 
+	COUNT(DISTINCT bar_delta.diegoCupsId) AS `bar_delta.distinct_cups`
+FROM bar_delta
+
+WHERE 
+	blah = "blah"
+LIMIT 1;
+# Time: 160125 12:44:19
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.834820  Lock_time: 0.000149 Rows_sent: 44  Rows_examined: 4167
+SET timestamp=1453743859;
+SELECT 
+	bar_delta.romeopacificInitialAmino AS `bar_delta.romeo_pacific_initial_amino`,
+	COUNT(DISTINCT bar_delta.diegoCupsId) AS `bar_delta.distinct_cups`
+FROM bar_delta
+
+WHERE 
+	blah = "blah"
+GROUP BY 1
+ORDER BY COUNT(DISTINCT bar_delta.diegoCupsId) DESC
+LIMIT 500;
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.765809  Lock_time: 0.000092 Rows_sent: 1  Rows_examined: 403423
+SET timestamp=1453743859;
+SELECT 
+	*
+FROM bar_delta
+
+WHERE 
+	blah = "blah"
+LIMIT 1;
+# Time: 160125 12:48:02
+# User@Host: user3[user3] @ host3.test.com [1.1.1.3]
+# Query_time: 0.046430  Lock_time: 0.000072 Rows_sent: 1  Rows_examined: 56733
+SET timestamp=1453744082;
+select max(date_format(date_updated,'%Y-%m-%d')) from foo_super_summer as maxModDate;
+# Time: 160125 13:08:37
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.000324  Lock_time: 0.000073 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1453745317;
+SELECT DISTINCT table_name FROM information_schema.tables WHERE table_schema = 'user_sonoma';
+# Time: 160125 14:13:40
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.000375  Lock_time: 0.000100 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1453749220;
+SELECT DISTINCT table_name FROM information_schema.tables WHERE table_schema = 'user_sonoma';
+# Time: 160125 15:18:43
+# User@Host: user[user] @ host.test.com [1.1.1.1]
+# Query_time: 0.000329  Lock_time: 0.000071 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1453753123;
+SELECT DISTINCT table_name FROM information_schema.tables WHERE table_schema = 'user_sonoma';
+# Time: 160125 16:17:29
+# User@Host: user4[user4] @ sql-client-71 [1.1.1.10]
+# Query_time: 0.000216  Lock_time: 0.000069 Rows_sent: 1  Rows_examined: 2
+use jerry_sample;
+SET timestamp=1453756649;
+SELECT
+	*
+FROM bar_delta
+
+WHERE
+	blah = "blah"
+LIMIT 1;

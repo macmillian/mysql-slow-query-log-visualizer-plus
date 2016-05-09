@@ -1,0 +1,6 @@
+
+# on database server
+# run cron every thirty minutes to copy slow query logs to web server
+
+#copy slow query logs from database server to to web server
+0,30 * * * * /home/username/copy_slow_query_log_to_web_server.sh

@@ -1,0 +1,6 @@
+
+# on web server
+# run cron every 30 minutes to process log files for the slow query log visualizer tool
+
+# slow query log processing
+15,45 * * * * /home/username/script/slow_query_log_processing.sh
