@@ -1,21 +1,19 @@
-About these cron job scripts:
-
-This is an H1
-=============
-
-This is an H2
--------------
-
-# This is an H1
-
-## This is an H2
-
-###### This is an H6
+## About the cron job scripts:
 
 
-> This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
-> consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
-> Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+###### on_db_server folder
+
+copy_slow_query_log_to_web_server.sh
+
+* This script assumes that the slow query logs are named mysqld_slowqry-YYMMDD.  If your log files are not named with this scheme, then this script would need to be modified.
+
+* The script tests whether some log file exist and if they exist, it it copies them to the web server specified in the destination string
+
+> [ -s FILE ] True if FILE exists and has a size greater than zero
+
+* In order to enable scp to work you can create a key pair and copy it to the other server
+ http://unix.stackexchange.com/questions/58704/bash-script-to-copy-log-files-into-a-new-directory
+
+> ssh-keygen -t rsa
 > 
-> Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
-> id sem consectetuer libero luctus adipiscing.
+> ssh-copy-id username@hostname
