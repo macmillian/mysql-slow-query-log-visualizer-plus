@@ -10,8 +10,9 @@
 * In order to enable scp to work without requiring a password to be entered, you can create a key pair and copy it to the other server. See this topic for more info:
  http://unix.stackexchange.com/questions/58704/bash-script-to-copy-log-files-into-a-new-directory
 
-> ssh-keygen -t rsa
-> ssh-copy-id username@hostname
+ > ssh-keygen -t rsa
+
+ > ssh-copy-id username@hostname
 
 
 * On my database server, there was some unpredictable behavior with the log file rotator. So, that is why there are 4 blocks that are testing for log files of different dates, and copying them to the web server if they exist.
