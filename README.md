@@ -21,4 +21,4 @@ App page, showing visualizer tool<br />
 ## More details
 * the public_html folder contains the code which is served on the web host.  
 
-* the cron_scripts folder contain the bash scripts which I am running via cron job.  One bash scripts runs on the database server, and copies the slow query log files from the database server to a web server.  Then, a second bash script runs on the web server and processes the log files to create weekly and monthly log files. 
+* the cron_scripts folder contain the bash scripts which run via cron job.  One bash scripts runs on the database server, and copies the slow query log files from the database server to a web server.  Then, a second bash script runs on the web server and processes the log files to create weekly and monthly logs. 
